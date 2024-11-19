@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:28 by besalort          #+#    #+#             */
-/*   Updated: 2024/11/14 13:42:49 by besalort         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:01:00 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,16 @@ class Bureaucrat {
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &bureaucrat);
 		Bureaucrat &operator=(const Bureaucrat &bureaucrat);
+		
+		void			setGrade(unsigned int grade);
+		unsigned int	getGrade() const;
+		std::string		getName() const;
 
-		// class GradeTooHigh : std::exception {
-
-		// };
+		class GradeTooHigh : std::exception {
+			
+		};
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/11/14 13:41:53 by besalort         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:01:56 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,29 @@ Bureaucrat::~Bureaucrat() {
         std::cout << RED << _name << " Bureaucrat grade " << _grade << " destroyed." << WHITE << std::endl;
 }
 
-// void Bureaucrat::CheckGrade(unsigned int const){
-//     try {
-//         if (grade == 0)
-//             throw (grade);
-//         else if (grade > 150)
-//             throw (grade);
-//     }
-// }
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) : _name(bureaucrat._name), _grade(bureaucrat._grade){
+	
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat){
+	if (this != &bureaucrat)
+		_grade = bureaucrat._grade;
+	return (*this);
+}
+
+void	Bureaucrat::setGrade(unsigned int grade){
+	_grade = grade;
+}
+
+unsigned int	Bureaucrat::getGrade() const{
+	return(_grade);
+}
+
+std::string		Bureaucrat::getName() const{
+	return(_name);
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff){
+	out << BLUE << staff.getName() << ", grade: " << staff.getGrade() << std::endl; 
+	return (out);
+}
