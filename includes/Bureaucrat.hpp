@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:28 by besalort          #+#    #+#             */
-/*   Updated: 2024/11/19 16:01:00 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/11 21:19:09 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ class Bureaucrat {
 		unsigned int	getGrade() const;
 		std::string		getName() const;
 
-		class GradeTooHigh : std::exception {
-			
-		};
+		class GradeTooHighException : std::exception {};
+		class GradeTooLowException : std::exception {};
+
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff);

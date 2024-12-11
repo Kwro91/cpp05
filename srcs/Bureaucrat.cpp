@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/11/19 16:01:56 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/11 21:21:05 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat){
 }
 
 void	Bureaucrat::setGrade(unsigned int grade){
+	try
+	{
+		if (grade > 150)
+			throw GradeTooHighException();
+		else if (grade == 0)
+			throw GradeTooLowException();
+		
+	}catch (const GradeTooHighException &e){
+		std::cerr << YELLOW << "Error: grade too high on " << this->getName() << " (" << grade << ")" << WHITE << std::endl;
+		return ;
+	}catch (const GradeTooLowException &e){
+		std::cerr << YELLOW << "Error: grade too low on " << this->getName() << " (" << grade << ")" << WHITE << std::endl;
+		return ;
+	}
 	_grade = grade;
 }
 
