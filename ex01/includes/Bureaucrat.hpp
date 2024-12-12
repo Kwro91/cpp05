@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:28 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 17:38:47 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:13:55 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@
 #include <iostream>
 #include <exception>
 #include "Color.hpp"
+#include "Form.hpp"
 
 #define MAXGRADE 150
 #define MINGRADE 0
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -40,6 +43,7 @@ class Bureaucrat {
 		std::string		getName() const;
 		void			upGrade();
 		void			downGrade();
+		void			signForm(Form &f) const;
 
 		class GradeTooHighException : std::exception {
 			public:
@@ -49,7 +53,6 @@ class Bureaucrat {
 			public:
 				const char	*what() const throw();
 		};
-
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff);

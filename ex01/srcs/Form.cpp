@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:06:55 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 18:37:56 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:07:35 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ std::string Form::getStatus() const {
 	if (_sign)
 		return ("signed");
 	return ("unsigned");
+}
+
+void	Form::beSigned(const Bureaucrat &b){
+	if (_sign)
+		return;
+	if (b.getGrade() <= _toSign)
+		_sign = true;
+	else
+		throw GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &form){

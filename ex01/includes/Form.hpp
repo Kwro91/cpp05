@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:02:40 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 18:34:49 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:13:35 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+
+class Bureaucrat;
 
 class Form {
 	private:
@@ -35,6 +37,7 @@ class Form {
 		unsigned int getToSign() const;
 		unsigned int getToExec() const;
 		std:: string getStatus() const;
+		void	beSigned(const Bureaucrat &b);
 
 		class GradeTooHighException : std::exception {
 			public:
