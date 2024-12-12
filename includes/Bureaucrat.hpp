@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:28 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/11 21:19:09 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:40:37 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,31 @@ class Bureaucrat {
     private:
 		const std::string _name;
 		unsigned int _grade;
+		unsigned int _maxGrade;
+		unsigned int _minGrade;
 
     protected:
 
     public:
+		Bureaucrat();
 		Bureaucrat(const std::string name, unsigned int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &bureaucrat);
 		Bureaucrat &operator=(const Bureaucrat &bureaucrat);
 		
-		void			setGrade(unsigned int grade);
 		unsigned int	getGrade() const;
 		std::string		getName() const;
+		void			upGrade();
+		void			downGrade();
 
-		class GradeTooHighException : std::exception {};
-		class GradeTooLowException : std::exception {};
+		class GradeTooHighException : std::exception {
+			public:
+				const char	*what() const throw();
+		};
+		class GradeTooLowException : std::exception {
+			public:
+				const char	*what() const throw();
+		};
 
 };
 

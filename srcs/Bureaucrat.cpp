@@ -6,13 +6,31 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/11 21:21:05 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:45:03 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp" 
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name), _grade(grade){
+const char	*Bureaucrat::GradeTooHighException::what() const throw(){
+	return ("Exeption: Grade too high!");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what() const throw(){
+	return ("Exeption: Grade too low!");
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150), _maxGrade(150), _minGrade(0) {
+	    std::cout << GREEN << _name << " Bureaucrat grade " << _grade << " have been created." << WHITE << std::endl;
+}
+
+Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name), _grade(grade), _maxGrade(150), _minGrade(0){
+	if (grade > _maxGrade)
+		throw GradeTooLowException();
+	else if (grade < _minGrade)
+		throw GradeTooHighException();
     std::cout << GREEN << _name << " Bureaucrat grade " << _grade << " have been created." << WHITE << std::endl;
 }
 
@@ -30,24 +48,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat){
 	return (*this);
 }
 
-void	Bureaucrat::setGrade(unsigned int grade){
-	try
-	{
-		if (grade > 150)
-			throw GradeTooHighException();
-		else if (grade == 0)
-			throw GradeTooLowException();
-		
-	}catch (const GradeTooHighException &e){
-		std::cerr << YELLOW << "Error: grade too high on " << this->getName() << " (" << grade << ")" << WHITE << std::endl;
-		return ;
-	}catch (const GradeTooLowException &e){
-		std::cerr << YELLOW << "Error: grade too low on " << this->getName() << " (" << grade << ")" << WHITE << std::endl;
-		return ;
-	}
-	_grade = grade;
-}
-
 unsigned int	Bureaucrat::getGrade() const{
 	return(_grade);
 }
@@ -56,7 +56,19 @@ std::string		Bureaucrat::getName() const{
 	return(_name);
 }
 
+void	Bureaucrat::upGrade(){ //grade 1 -> grade 0
+	if (_grade <= _minGrade)
+		throw GradeTooHighException();
+	_grade--;
+}
+
+void	Bureaucrat::downGrade(){ //grade 1 -> grade 2
+	if (_grade >= _maxGrade)
+		throw GradeTooLowException();
+	_grade++;
+}
+
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff){
-	out << BLUE << staff.getName() << ", grade: " << staff.getGrade() << std::endl; 
+	out << BLUE << staff.getName() << ", grade: " << staff.getGrade(); 
 	return (out);
 }
