@@ -6,18 +6,18 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 16:45:03 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/13 14:10:24 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp" 
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw(){
-	return ("Exeption: Grade too high!");
+	return ("Exception: Grade too high!");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw(){
-	return ("Exeption: Grade too low!");
+	return ("Exception: Grade too low!");
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

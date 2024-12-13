@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:02:40 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 19:13:35 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/13 14:08:48 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ class Form {
 		std:: string getStatus() const;
 		void	beSigned(const Bureaucrat &b);
 
-		class GradeTooHighException : std::exception {
+		class GradeTooHighException : public std::exception {
 			public:
 				const char	*what() const throw();
 		};
-		class GradeTooLowException : std::exception {
+		class GradeTooLowException : public std::exception {
 			public:
 				const char	*what() const throw();
 		};

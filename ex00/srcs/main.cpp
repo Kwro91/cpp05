@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:36:03 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 16:47:10 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/13 14:07:45 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,19 @@ int main ()
 	try {
 		boss.upGrade();
 		boss.upGrade();
-	}catch (Bureaucrat::GradeTooHighException &e){
-		std::cerr << YELLOW << e.what() << WHITE << std::endl;
-	}catch (Bureaucrat::GradeTooLowException &e){ //not used
+	}catch (std::exception &e){
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
 	////////////////////////////////////////////////////////// LOW
 	try {
 		third.downGrade();
-	}catch (Bureaucrat::GradeTooHighException &e){ //not used
-		std::cerr << YELLOW << e.what() << WHITE << std::endl;
-	}catch (Bureaucrat::GradeTooLowException &e){
+	}catch (std::exception &e){
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
-	/////////////////////////////////////////////////////////// IN CONSTRUCTOR
+	////////////////////////////////////////////////////// IN CONSTRUCTOR
 	try {
 		Bureaucrat nope("Eduardo", 151);
-	}catch (Bureaucrat::GradeTooHighException &e){ //not used
-		std::cerr << YELLOW << e.what() << WHITE << std::endl;
-	}catch (Bureaucrat::GradeTooLowException &e){
+	}catch (std::exception &e){
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
 	std::cout << boss << std::endl;

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 19:36:24 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/13 14:13:41 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	Bureaucrat::signForm(Form &f) const{
 		}
 		f.beSigned(*this);
 		std::cout << ROSE << "Bureaucrat " << getName() << " signed " << f.getName() << WHITE << std::endl;
-	}catch (const Form::GradeTooLowException &e){
+	}catch (const std::exception &e){
 		std::cout << ROSE << "Bureaucrat " << getName() << " couldn't sign " << f.getName() << " because " << YELLOW << e.what() << WHITE << std::endl;
 	}
 }
