@@ -1,7 +1,10 @@
+![42](https://img.shields.io/static/v1?label=&labelColor=000000e&logo=42&message=project&color=000000&style=flate)
+
 # CPP learning 
 
 CPP module 05 of 42 School
 This project consist in learning try catch & exception concept
+
 
 ## Sources
 
