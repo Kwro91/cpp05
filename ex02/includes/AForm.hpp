@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:02:40 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/13 16:22:54 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:00:52 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AForm {
 		unsigned int getToExec() const;
 		std:: string getStatus() const;
 		void	beSigned(const Bureaucrat &b);
-		void checkExecute(Bureaucrat const &executor) const;
+		void	checkExecute(Bureaucrat const &executor) const;
 		virtual void execute(Bureaucrat const &executor) const = 0;
 
 		class GradeTooHighException : public std::exception {
@@ -53,9 +53,9 @@ class AForm {
 			public:
 				const char	*what()	const throw();
 		};
-		class FileNotOpenException : public std::exception{
-		public:
-			const char	*what() const throw();
+		class FileErrorException : public std::exception {
+			public:
+				const char	*what() const throw();
 		};
 	
 };

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:36:03 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/13 16:24:33 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:55:05 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,38 +23,8 @@ int main ()
 	std::cout << boss << std::endl;
 	std::cout << second << std::endl;
 	std::cout << third << std::endl;
-
-
-    std::cout << "                                             ." << std::endl;
-    std::cout << "                                              .         ;" << std::endl;
-    std::cout << "                 .              .              ;%     ;;   " << std::endl;
-    std::cout << "                   ,           ,                :;%  %;   " << std::endl;
-    std::cout << "                    :         ;                   :;%;'     .,   " << std::endl;
-    std::cout << "           ,.        %;     %;            ;        %;'    ,;" << std::endl;
-    std::cout << "             ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl;
-    std::cout << "              %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl;
-    std::cout << "               ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl;
-    std::cout << "                `%;.     ;%;     %;'         `;%%;.%;'" << std::endl;
-    std::cout << "                 `:;%.    ;%%. %@;        %; ;@%;'%'" << std::endl;
-    std::cout << "                    `:%;.  :;bd%;          %;@%;" << std::endl;
-    std::cout << "                      `@%:.  :;%.         ;@@%;'   " << std::endl;
-    std::cout << "                        `@%.  `;@%.      ;@@%;         " << std::endl;
-    std::cout << "                          `@%%. `@%%    ;@@%;        " << std::endl;
-    std::cout << "                            ;@%. :@%%  %@@%;       " << std::endl;
-    std::cout << "                              %@bd%%%bd%%:;     " << std::endl;
-    std::cout << "                                #@%%%%%:;;" << std::endl;
-    std::cout << "                                %@@%%%::;" << std::endl;
-    std::cout << "                                %@@@%(o);  . '         " << std::endl;
-    std::cout << "                                %@@@o%;:(.,'         " << std::endl;
-    std::cout << "                            `.. %@@@o%::;         " << std::endl;
-    std::cout << "                               `)@@@o%::;         " << std::endl;
-    std::cout << "                                %@@(o)::;        " << std::endl;
-    std::cout << "                               .%@@@@%::;         " << std::endl;
-    std::cout << "                               ;%@@@@%::;.          " << std::endl;
-    std::cout << "                              ;%@@@@%%:;;;. " << std::endl;
-    std::cout << "                          ...;%@@@@@%%:;;;;,..  " << std::endl;
-    
-
-	
+	boss.signForm(paper);
+	third.executeForm(paper);
+	boss.executeForm(paper);
     return 0;
 }

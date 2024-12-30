@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:28:36 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/13 16:23:15 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:35:26 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ const char	*AForm::GradeTooHighException::what() const throw(){
 const char	*AForm::GradeTooLowException::what() const throw(){
 	return ("Exception: AForm grade too low!");
 }
+
 const char	*AForm::FormNotSignedException::what() const throw() {
 	return ("Exception: AForm not signed!");
 }
-const char	*AForm::FileNotOpenException::what() const throw() {
-	return ("Exception: File could not be opened!");
+
+const char	*AForm::FileErrorException::what() const throw(){
+	return ("Exception: No file or no write permission!");
 }
+
 /////////////////////////////////////////////////////
 
 AForm::AForm(std::string name, unsigned int toSign, unsigned int toExec) : _name(name), _toSign(toSign), _toExec(toExec){

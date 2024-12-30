@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/13 16:41:25 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:51:26 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,48 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-	(void)executor;
-	throw FileNotOpenException();
-}
-
-void	ShrubberyCreationForm::createFile(){
+void	ShrubberyCreationForm::createFile() const {
 	std::string fileName = _target + "_shruberry";
 	std::ofstream file(fileName.c_str());
+	if (!file)
+		throw FileErrorException();
+	fillFile(file);
+}
+
+void	ShrubberyCreationForm::fillFile(std::ofstream &file) const {
+	file << "                                             ." << std::endl;
+    file << "                                              .         ;" << std::endl;
+    file << "                 .              .              ;%     ;;   " << std::endl;
+    file << "                   ,           ,                :;%  %;   " << std::endl;
+    file << "                    :         ;                   :;%;'     .,   " << std::endl;
+    file << "           ,.        %;     %;            ;        %;'    ,;" << std::endl;
+    file << "             ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl;
+    file << "              %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl;
+    file << "               ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl;
+    file << "                `%;.     ;%;     %;'         `;%%;.%;'" << std::endl;
+    file << "                 `:;%.    ;%%. %@;        %; ;@%;'%'" << std::endl;
+    file << "                    `:%;.  :;bd%;          %;@%;" << std::endl;
+    file << "                      `@%:.  :;%.         ;@@%;'   " << std::endl;
+    file << "                        `@%.  `;@%.      ;@@%;         " << std::endl;
+    file << "                          `@%%. `@%%    ;@@%;        " << std::endl;
+    file << "                            ;@%. :@%%  %@@%;       " << std::endl;
+    file << "                              %@bd%%%bd%%:;     " << std::endl;
+    file << "                                #@%%%%%:;;" << std::endl;
+    file << "                                %@@%%%::;" << std::endl;
+    file << "                                %@@@%(o);  . '         " << std::endl;
+    file << "                                %@@@o%;:(.,'         " << std::endl;
+    file << "                            `.. %@@@o%::;         " << std::endl;
+    file << "                               `)@@@o%::;         " << std::endl;
+    file << "                                %@@(o)::;        " << std::endl;
+    file << "                               .%@@@@%::;         " << std::endl;
+    file << "                               ;%@@@@%::;.          " << std::endl;
+    file << "                              ;%@@@@%%:;;;. " << std::endl;
+    file << "                          ...;%@@@@@%%:;;;;,..  " << std::endl;
+	
+	file.close();
+}
+
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	checkExecute(executor);
+	createFile();
 }
