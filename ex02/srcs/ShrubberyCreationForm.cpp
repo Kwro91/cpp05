@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/30 16:51:26 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:09:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 void	ShrubberyCreationForm::createFile() const {
-	std::string fileName = _target + "_shruberry";
+	std::string fileName = _target + "_shrubbery";
 	std::ofstream file(fileName.c_str());
 	if (!file)
 		throw FileErrorException();

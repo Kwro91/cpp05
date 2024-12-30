@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/30 16:54:43 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:08:24 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,15 @@ void	Bureaucrat::signForm(AForm &f) const{
 void	Bureaucrat::executeForm(AForm const &f){
 	try {
 		f.execute(*this);
-		std::cout << *this << " executed " << f << std::endl;
+		std::cout << ROSE << *this << " executed " << f << WHITE << std::endl;
 	} catch (std::exception &e){
-		std::cerr << *this << " could not execute " << f << std::endl;
+		// std::cout << YELLOW << *this << " could not execute " << f << WHITE << std::endl;
 		std::cout << YELLOW << e.what() << WHITE << std::endl;
 	}
 }
 
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff){
-	out << BLUE << staff.getName() << ", grade: " << staff.getGrade(); 
+	out << staff.getName() << ", grade: " << staff.getGrade(); 
 	return (out);
 }

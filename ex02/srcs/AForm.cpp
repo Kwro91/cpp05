@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:28:36 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/30 15:35:26 by besalort         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:01:39 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ void	AForm::checkExecute(Bureaucrat const &executor) const{
 // }
 
 std::ostream &operator<<(std::ostream &out, const AForm &AForm){
-	out << BLUE << AForm.getName() << " status " << AForm.getStatus() << ", to sign (" << AForm.getToSign() << ") and to execute (" << AForm.getToExec() << ")";
+	out << AForm.getName() << " status " << AForm.getStatus() << ", to sign (" << AForm.getToSign() << ") and to execute (" << AForm.getToExec() << ")";
 	return (out);	
 }
