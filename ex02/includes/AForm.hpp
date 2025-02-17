@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:02:40 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/30 16:00:52 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:02:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <fstream>
 
 class Bureaucrat;
 
@@ -33,13 +34,14 @@ class AForm {
 		AForm(const AForm &form);
 		AForm &operator=(const AForm &form);
 
-		std::string getName() const;
-		unsigned int getToSign() const;
-		unsigned int getToExec() const;
-		std:: string getStatus() const;
-		void	beSigned(const Bureaucrat &b);
-		void	checkExecute(Bureaucrat const &executor) const;
-		virtual void execute(Bureaucrat const &executor) const = 0;
+		std::string 		getName() const;
+		unsigned int 		getToSign() const;
+		unsigned int 		getToExec() const;
+		unsigned int		getStatus() const;
+		void				beSigned(const Bureaucrat &b);
+		void 				checkExecute(Bureaucrat const &executor) const;
+		void 				execute(Bureaucrat const &executor) const;
+		virtual void		doExec() const = 0;
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -53,11 +55,10 @@ class AForm {
 			public:
 				const char	*what()	const throw();
 		};
-		class FileErrorException : public std::exception {
-			public:
-				const char	*what() const throw();
+		class FileNotOpenException : public std::exception{
+		public:
+			const char	*what() const throw();
 		};
-	
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &f);

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:28:36 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/30 17:01:39 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:16:34 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@ const char	*AForm::GradeTooHighException::what() const throw(){
 const char	*AForm::GradeTooLowException::what() const throw(){
 	return ("Exception: AForm grade too low!");
 }
-
 const char	*AForm::FormNotSignedException::what() const throw() {
 	return ("Exception: AForm not signed!");
 }
-
-const char	*AForm::FileErrorException::what() const throw(){
-	return ("Exception: No file or no write permission!");
+const char	*AForm::FileNotOpenException::what() const throw() {
+	return ("Exception: File could not be opened!");
 }
-
 /////////////////////////////////////////////////////
 
 AForm::AForm(std::string name, unsigned int toSign, unsigned int toExec) : _name(name), _toSign(toSign), _toExec(toExec){
@@ -67,10 +64,11 @@ unsigned int AForm::getToExec() const {
 	return (_toExec);
 }
 
-std::string AForm::getStatus() const {
-	if (_sign)
-		return ("signed");
-	return ("unsigned");
+unsigned int AForm::getStatus() const {
+	// if (_sign)
+	// 	return ("signed");
+	// return ("unsigned");
+	return (_sign);
 }
 
 void	AForm::beSigned(const Bureaucrat &b){
@@ -89,15 +87,19 @@ void	AForm::checkExecute(Bureaucrat const &executor) const{
 		throw FormNotSignedException();
 }
 
-// void	AForm::execute(Bureaucrat const &executor) const{
-// 	try{
-// 		checkExecute(executor);
-// 		// execute form here
-		
-// 	}catch (const std::exception &e){
-// 		std::cout << YELLOW << e.what() << WHITE << std::endl;
-// 	}
-// }
+void		AForm::doExec() const{
+	
+}
+
+void	AForm::execute(Bureaucrat const &executor) const{
+	try{
+		checkExecute(executor);
+		doExec();
+		std::cout << ROSE << "Bureaucrat " << executor.getName() << " executed " << this->getName() << WHITE << std::endl;
+	}catch (const std::exception &e){
+		std::cout << ROSE << "Bureaucrat " << executor.getName() << " couldn't execute " << this->getName() << " because " << YELLOW << e.what() << WHITE << std::endl;
+	}
+}
 
 std::ostream &operator<<(std::ostream &out, const AForm &AForm){
 	out << AForm.getName() << " status " << AForm.getStatus() << ", to sign (" << AForm.getToSign() << ") and to execute (" << AForm.getToExec() << ")";

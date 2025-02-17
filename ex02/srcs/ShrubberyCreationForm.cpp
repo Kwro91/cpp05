@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:33:46 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/30 17:09:25 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:14:38 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void	ShrubberyCreationForm::createFile() const {
+void	ShrubberyCreationForm::doExec() const{
 	std::string fileName = _target + "_shrubbery";
 	std::ofstream file(fileName.c_str());
 	if (!file)
-		throw FileErrorException();
-	fillFile(file);
-}
-
-void	ShrubberyCreationForm::fillFile(std::ofstream &file) const {
+	throw FileNotOpenException();
 	file << "                                             ." << std::endl;
     file << "                                              .         ;" << std::endl;
     file << "                 .              .              ;%     ;;   " << std::endl;
@@ -68,11 +64,4 @@ void	ShrubberyCreationForm::fillFile(std::ofstream &file) const {
     file << "                               ;%@@@@%::;.          " << std::endl;
     file << "                              ;%@@@@%%:;;;. " << std::endl;
     file << "                          ...;%@@@@@%%:;;;;,..  " << std::endl;
-	
-	file.close();
-}
-
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-	checkExecute(executor);
-	createFile();
 }
