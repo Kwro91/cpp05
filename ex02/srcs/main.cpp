@@ -6,13 +6,14 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:36:03 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 17:14:53 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:41:30 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
 
 int main ()
 {
@@ -26,6 +27,7 @@ int main ()
 		std::cout << second << std::endl;
 		std::cout << third << std::endl;
 		std::cout << paper << WHITE << std::endl;
+		boss.executeForm(paper);
 		third.signForm(paper);
 		boss.signForm(paper);
 		third.executeForm(paper);
@@ -33,6 +35,31 @@ int main ()
 	} catch (std::exception &e){
 		std::cerr << ROSE << e.what() << WHITE << std::endl;
 	}
+
+
+
+	std::cout << GREEN << "///////////////////////////////////////" << WHITE << std::endl;
+
+	try { //ROBOTOMIZE TEST
+		
+		Bureaucrat boss("Ainz Ool Gown", 1);
+		Bureaucrat second("Albedo", 2);
+		Bureaucrat third("Climb", 150);
+		RobotomyRequestForm paper(boss.getName());
+		std::cout << BLUE << boss << std::endl;
+		std::cout << second << std::endl;
+		std::cout << third << std::endl;
+		std::cout << paper << WHITE << std::endl;
+		boss.executeForm(paper);
+		third.signForm(paper);
+		boss.signForm(paper);
+		third.executeForm(paper);
+		boss.executeForm(paper);
+	} catch (std::exception &e){
+		std::cerr << ROSE << e.what() << WHITE << std::endl;
+	}
+
+	
     return 0;
 }
 

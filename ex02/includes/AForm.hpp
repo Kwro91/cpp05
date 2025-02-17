@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:02:40 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 17:02:25 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:31:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <string>
 #include <exception>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 class Bureaucrat;
 
