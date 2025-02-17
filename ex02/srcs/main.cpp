@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:36:03 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 18:41:30 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:48:35 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main ()
 		Bureaucrat boss("Ainz Ool Gown", 1);
 		Bureaucrat second("Albedo", 2);
 		Bureaucrat third("Climb", 150);
-		ShrubberyCreationForm paper;
+		ShrubberyCreationForm paper("Home");
 		std::cout << BLUE << boss << std::endl;
 		std::cout << second << std::endl;
 		std::cout << third << std::endl;
@@ -45,7 +45,7 @@ int main ()
 		Bureaucrat boss("Ainz Ool Gown", 1);
 		Bureaucrat second("Albedo", 2);
 		Bureaucrat third("Climb", 150);
-		RobotomyRequestForm paper(boss.getName());
+		RobotomyRequestForm paper("RandomGuy");
 		std::cout << BLUE << boss << std::endl;
 		std::cout << second << std::endl;
 		std::cout << third << std::endl;
