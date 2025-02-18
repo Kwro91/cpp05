@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:28:36 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 17:07:47 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:06:17 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ unsigned int AForm::getToExec() const {
 }
 
 unsigned int AForm::getStatus() const {
+	// if (_sign)
+	// 	return ("signed");
+	// return ("unsigned");
 	return (_sign);
 }
 

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:34:29 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 17:05:43 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:06:45 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	RobotomyRequestForm::doExec() const{
 		else
 			std::cout << ROSE << _target << " has " << RED << "failed" << ROSE << " to be robotomize" << WHITE << std::endl;
 	}catch (std::exception &e) {
-		std::cerr << YELLOW << e.what() << std::endl;
+		std::cerr << YELLOW << std::endl;
 	}
 }
