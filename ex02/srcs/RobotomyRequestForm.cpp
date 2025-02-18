@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:34:29 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 18:44:58 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:56:50 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRe
 RobotomyRequestForm::~RobotomyRequestForm(){
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &f) : AForm(f.getName(), f.getToSign(), f.getToExec()), _target(f._target) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &f) : AForm(f.getName(), f.getToSign(), f.getToExec()), _target(f.getTarget()) {
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &f) {

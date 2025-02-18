@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:28:36 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 17:16:34 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:09:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ void	AForm::beSigned(const Bureaucrat &b){
 }
 
 void	AForm::checkExecute(Bureaucrat const &executor) const{
-	if (executor.getGrade() > _toExec)
-		throw GradeTooLowException();
 	if (_sign == false)
 		throw FormNotSignedException();
+	if (executor.getGrade() > _toExec)
+		throw GradeTooLowException();
 }
 
 void		AForm::doExec() const{
@@ -94,8 +94,8 @@ void		AForm::doExec() const{
 void	AForm::execute(Bureaucrat const &executor) const{
 	try{
 		checkExecute(executor);
+		std::cout << GREEN << "Bureaucrat " << executor.getName() << " executed " << this->getName() << WHITE << std::endl;
 		doExec();
-		std::cout << ROSE << "Bureaucrat " << executor.getName() << " executed " << this->getName() << WHITE << std::endl;
 	}catch (const std::exception &e){
 		std::cout << ROSE << "Bureaucrat " << executor.getName() << " couldn't execute " << this->getName() << " because " << YELLOW << e.what() << WHITE << std::endl;
 	}
