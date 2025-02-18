@@ -6,14 +6,14 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:52:50 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 16:57:34 by besalort         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:43:35 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include "PresidentialPardonForm.cpp"
+#include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
@@ -26,7 +26,9 @@ class Intern {
 		Intern(const Intern &i);
 		Intern &operator=(const Intern &i);
 
-		void	makeForm(std::string fName, std::string target) const;
+		AForm	*makeForm(std::string fName, std::string target);
 };
+
+std::ostream &operator<<(std::ostream &out, const Intern &i);
 
 #endif

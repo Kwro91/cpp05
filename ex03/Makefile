@@ -6,7 +6,7 @@
 #    By: besalort <besalort@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/14 13:34:34 by besalort          #+#    #+#              #
-#    Updated: 2025/02/18 14:58:21 by besalort         ###   ########.fr        #
+#    Updated: 2025/02/18 17:18:10 by besalort         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = srcs/main.cpp\
 	srcs/ShrubberyCreationForm.cpp\
 	srcs/RobotomyRequestForm.cpp\
 	srcs/PresidentialPardonForm.cpp\
+	srcs/Intern.cpp\
 
 CC =    c++
 
