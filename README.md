@@ -44,8 +44,8 @@ Create 3 types of formular :
 
 ### ex03 
 
-#### make an Intern class
-An `intern` have no name, no grade. They can only make `Forms` based on demand.
+Make an `Intern` class
+An intern have no name, no grade. They can only make `Forms` based on demand.
 
 They receive a `makeForm request` with the name of the form and the target. If the name is part of the 3 form types, then they create it. If not, they print an error.
 
