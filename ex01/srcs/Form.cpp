@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:06:55 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/12 19:07:35 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:16:37 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ Form::Form(const Form &form) : _name(form._name), _toSign(form._toSign), _toExec
 
 Form &Form::operator=(const Form &form) {
 	if (this != &form)
-	{
-		_name = form._name;
 		_sign = form._sign;
-	}
 	return (*this);
 }
 
@@ -59,10 +56,8 @@ unsigned int Form::getToExec() const {
 	return (_toExec);
 }
 
-std::string Form::getStatus() const {
-	if (_sign)
-		return ("signed");
-	return ("unsigned");
+unsigned int Form::getStatus() const {
+	return (_sign);
 }
 
 void	Form::beSigned(const Bureaucrat &b){
@@ -75,6 +70,6 @@ void	Form::beSigned(const Bureaucrat &b){
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &form){
-	out << BLUE << form.getName() << " status " << form.getStatus() << ", to sign (" << form.getToSign() << ") and to execute (" << form.getToExec() << ")";
-	return (out);	
+	out << form.getName() << " status " << form.getStatus() << ", to sign (" << form.getToSign() << ") and to execute (" << form.getToExec() << ")";
+	return (out);
 }

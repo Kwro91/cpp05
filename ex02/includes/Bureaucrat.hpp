@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:28 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 16:13:39 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:17:05 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "AForm.hpp"
 
 #define MAXGRADE 150
-#define MINGRADE 0
+#define MINGRADE 1
 
 class AForm;
 

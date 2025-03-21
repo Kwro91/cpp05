@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:02:40 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/17 18:31:25 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:39:44 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ class Bureaucrat;
 
 class AForm {
 	private:
-		std::string _name;
-		bool _sign;
-		const unsigned int _toSign;
-		const unsigned int _toExec;
+		const std::string	_name;
+		bool				_sign;
+		const unsigned int	_toSign;
+		const unsigned int	_toExec;
+		const std::string	_target;
 	public:
-		AForm(std::string name, unsigned int toSign, unsigned int toExec);
+		AForm();
+		AForm(std::string name, unsigned int toSign, unsigned int toExec, std::string target);
 		virtual ~AForm();
 		AForm(const AForm &form);
 		AForm &operator=(const AForm &form);
@@ -40,6 +42,7 @@ class AForm {
 		unsigned int 		getToSign() const;
 		unsigned int 		getToExec() const;
 		unsigned int		getStatus() const;
+		std::string			getTarget() const;
 		void				beSigned(const Bureaucrat &b);
 		void 				checkExecute(Bureaucrat const &executor) const;
 		void 				execute(Bureaucrat const &executor) const;

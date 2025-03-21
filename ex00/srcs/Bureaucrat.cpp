@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2024/12/13 14:10:24 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 11:50:57 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150), _maxGrade(150), _minGrade(0) {
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150), _maxGrade(150), _minGrade(1) {
 	    std::cout << GREEN << _name << " Bureaucrat grade " << _grade << " have been created." << WHITE << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name), _grade(grade), _maxGrade(150), _minGrade(0){
+Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name), _grade(grade), _maxGrade(150), _minGrade(1){
 	if (grade > _maxGrade)
 		throw GradeTooLowException();
 	else if (grade < _minGrade)
@@ -69,6 +69,6 @@ void	Bureaucrat::downGrade(){ //grade 1 -> grade 2
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff){
-	out << BLUE << staff.getName() << ", grade: " << staff.getGrade(); 
+	out << staff.getName() << ", grade: " << staff.getGrade(); 
 	return (out);
 }

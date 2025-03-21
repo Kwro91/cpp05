@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:28:36 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 17:07:47 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:40:37 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ const char	*AForm::FileNotOpenException::what() const throw() {
 }
 /////////////////////////////////////////////////////
 
-AForm::AForm(std::string name, unsigned int toSign, unsigned int toExec) : _name(name), _toSign(toSign), _toExec(toExec){
+AForm::AForm(): _toSign(0), _toExec(0){
+	
+}
+
+AForm::AForm(std::string name, unsigned int toSign, unsigned int toExec, std::string target) : _name(name), _toSign(toSign), _toExec(toExec), _target(target){
 	_sign = false;
 	if (toSign > MAXGRADE || toExec > MAXGRADE)
 		throw GradeTooLowException();
@@ -38,17 +42,14 @@ AForm::~AForm(){
 		std::cout << RED << _name << " AForm grade to sign (" << _toSign << ") and to execute (" << _toExec << ") is destroyed." << WHITE << std::endl;
 }
 
-AForm::AForm(const AForm &AForm) : _name(AForm._name), _toSign(AForm._toSign), _toExec(AForm._toExec){
+AForm::AForm(const AForm &AForm) : _name(AForm._name), _toSign(AForm._toSign), _toExec(AForm._toExec), _target(AForm._target){
 		_sign = AForm._sign;
 		std::cout << GREEN << _name << " AForm grade to sign (" << _toSign << ") and to execute (" << _toExec << ") have been created by copy." << WHITE << std::endl;
 }
 
 AForm &AForm::operator=(const AForm &AForm) {
 	if (this != &AForm)
-	{
-		_name = AForm._name;
 		_sign = AForm._sign;
-	}
 	return (*this);
 }
 
@@ -66,6 +67,10 @@ unsigned int AForm::getToExec() const {
 
 unsigned int AForm::getStatus() const {
 	return (_sign);
+}
+
+std::string AForm::getTarget() const {
+	return (_target);
 }
 
 void	AForm::beSigned(const Bureaucrat &b){

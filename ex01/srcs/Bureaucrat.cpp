@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:35:13 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 17:04:12 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:00:25 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	Bureaucrat::downGrade(){ //grade 1 -> grade 2
 
 void	Bureaucrat::signForm(Form &f) const{
 	try {
-		if (f.getStatus() == "signed")
+		if (f.getStatus())
 		{
 			std::cout << ROSE << "Bureaucrat " << getName() << " try to sign " << f.getName() << " but it's already signed" WHITE << std::endl;
 			return ;
@@ -81,6 +81,6 @@ void	Bureaucrat::signForm(Form &f) const{
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &staff){
-	out << BLUE << staff.getName() << ", grade: " << staff.getGrade(); 
+	out << staff.getName() << ", grade: " << staff.getGrade(); 
 	return (out);
 }

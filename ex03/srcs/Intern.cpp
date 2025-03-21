@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:52:14 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 18:49:04 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 13:02:38 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Intern::~Intern(){
 }
 
 Intern::Intern(const Intern &i){
-	(void)i;
+	*this = i;
 }
 
 Intern &Intern::operator=(const Intern &i){
@@ -31,9 +31,9 @@ Intern &Intern::operator=(const Intern &i){
 
 AForm	*Intern::makeForm(std::string fName, std::string target){
 	try {
-		std::string fList[] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
-		int i;
-		for (i = 0; fList[i] != fName && i < 3; i++){}
+		std::string fList[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+		int i = 0;
+		for (; i < 3 && fList[i] != fName ; i++){}
 		switch (i)
 		{
 			case 0 :
@@ -51,10 +51,9 @@ AForm	*Intern::makeForm(std::string fName, std::string target){
 		}
 	}catch (std::exception &e){
 		std::cerr << YELLOW << e.what() << std::endl;
+		return (NULL);
 	}
-	return (NULL);
 }
-
 
 std::ostream &operator<<(std::ostream &out, const Intern &i){
 	(void)i;

@@ -6,7 +6,7 @@
 /*   By: besalort <besalort@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:36:03 by besalort          #+#    #+#             */
-/*   Updated: 2025/02/18 15:07:35 by besalort         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:51:49 by besalort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main ()
 		ShrubberyCreationForm paper("Home");
 		std::cout << BLUE << boss << std::endl;
 		std::cout << second << std::endl;
-		std::cout << third << std::endl;
-		std::cout << paper << WHITE << std::endl;
+		std::cout << third << WHITE << std::endl;
+		std::cout << paper << std::endl;
 		boss.executeForm(paper);
 		third.signForm(paper);
 		boss.signForm(paper);
@@ -53,8 +53,8 @@ int main ()
 		RobotomyRequestForm paper("RandomGuy");
 		std::cout << BLUE << boss << std::endl;
 		std::cout << second << std::endl;
-		std::cout << third << std::endl;
-		std::cout << paper << WHITE << std::endl;
+		std::cout << third << WHITE  << std::endl;
+		std::cout << paper << std::endl;
 		boss.executeForm(paper); //have to be signed
 		third.signForm(paper); //cant sign
 		boss.signForm(paper); //sign
@@ -78,8 +78,8 @@ int main ()
 		PresidentialPardonForm paper("RandomGuy");
 		std::cout << BLUE << boss << std::endl;
 		std::cout << second << std::endl;
-		std::cout << third << std::endl;
-		std::cout << paper << WHITE << std::endl;
+		std::cout << third << WHITE  << std::endl;
+		std::cout << paper << std::endl;
 		second.executeForm(paper); //have to be signed
 		third.signForm(paper); //cant sign
 		second.signForm(paper); //sign
